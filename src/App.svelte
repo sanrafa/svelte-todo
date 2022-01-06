@@ -1,5 +1,6 @@
 <script>
 	import Welcome from "./Welcome.svelte";
+	import Todos from "./Todos.svelte";
 	import {name} from './stores';
 </script>
 
@@ -8,8 +9,10 @@
 	{#if $name}
 	<h2>Hello {$name}!</h2>
 	<p>What do you need to do?</p>
+	<Todos />
 	{/if}
-	<Welcome />	
+	<Welcome />
+	
 </main>
 
 <style>
