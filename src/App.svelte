@@ -7,6 +7,7 @@
 	<h1>Whatcha Gotta Do?</h1>
 	{#if $name}
 	<h2>Hello {$name}!</h2>
+	<p>What do you need to do?</p>
 	{/if}
 	<Welcome />	
 </main>

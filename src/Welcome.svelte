@@ -7,6 +7,7 @@ function handleSubmit () {
 }
 </script>
 
+{#if !$name}
 <form on:submit|preventDefault={handleSubmit}>
     <p>
         First, what's your name?
@@ -14,3 +15,5 @@ function handleSubmit () {
     <input type="text" bind:value="{username}"/>
     <button type="submit">ENTER</button>
 </form>
+{/if}
+
