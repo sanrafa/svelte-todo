@@ -8,7 +8,7 @@
   <TodoForm />
   <ul>
     {#each $todos as todo (todo.id)}
-      <SingleTodo task={todo.text} completed={todo.done} />
+      <SingleTodo task={todo.text} completed={todo.done} id={todo.id} />
     {/each}
   </ul>
 </section>

@@ -1,8 +1,10 @@
 <script>
   import { todos } from "./stores";
 
+  // export let purpose = 'add';
+  export let text;
+
   let todo = {};
-  let text;
 
   function handleSubmit() {
     if (text) {
