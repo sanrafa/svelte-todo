@@ -6,14 +6,12 @@
 
   function handleSubmit() {
     if (text) {
-      let list = $todos,
-        todosAdded;
+      let list = $todos;
       let id = list.length + 1;
       todo.id = id;
       todo.text = text;
-      todos.set([...list, todo]);
-      todosAdded = $todos;
-      sessionStorage.setItem("todos", JSON.stringify(todosAdded));
+      todo.done = false;
+      todos.update((todos) => (todos = [...list, todo]));
       todo = {};
       text = "";
     } // add ELSE statement that triggers feedback if input empty?
