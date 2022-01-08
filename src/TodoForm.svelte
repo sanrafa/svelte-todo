@@ -1,4 +1,5 @@
 <script>
+  import { uid } from "uid/single";
   import { get } from "svelte/store";
   import { todos, toEdit } from "./stores";
 
@@ -9,7 +10,6 @@
 
   function handleEdit() {
     if (text) {
-      let todoList = get(todos);
       let todoToEdit = get(toEdit);
       todoToEdit.text = text;
       todos.update(
@@ -24,11 +24,16 @@
 
   function handleSubmit() {
     if (text) {
-      let list = $todos;
-      let id = list.length + 1;
-      todo.id = id;
-      todo.text = text;
-      todo.done = false;
+      let list = get(todos);
+      let id = uid(3);
+      todo = {
+        id: id,
+        text: text,
+        done: false,
+      };
+      // todo.id = id;
+      // todo.text = text;
+      // todo.done = false;
       todos.update((todos) => (todos = [...list, todo]));
       todo = {};
       text = "";

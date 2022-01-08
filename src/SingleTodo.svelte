@@ -1,6 +1,4 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-
   import MdDelete from "svelte-icons/md/MdDelete.svelte";
   import MdEdit from "svelte-icons/md/MdEdit.svelte";
   import { todos, toEdit } from "./stores";
