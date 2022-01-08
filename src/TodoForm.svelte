@@ -31,9 +31,6 @@
         text: text,
         done: false,
       };
-      // todo.id = id;
-      // todo.text = text;
-      // todo.done = false;
       todos.update((todos) => (todos = [...list, todo]));
       todo = {};
       text = "";

@@ -8,7 +8,6 @@
 
   function handleEdit() {
     toEdit.set(todo);
-    console.log($toEdit);
   }
 
   function handleDelete() {
