@@ -1,10 +1,26 @@
 <script>
-  import { todos } from "./stores";
+  import { get } from "svelte/store";
+  import { todos, toEdit } from "./stores";
 
-  // export let purpose = 'add';
+  $: addTodo = $toEdit.id ? false : true;
   export let text;
 
   let todo = {};
+
+  function handleEdit() {
+    if (text) {
+      let todoList = get(todos);
+      let todoToEdit = get(toEdit);
+      todoToEdit.text = text;
+      todos.update(
+        (todos) =>
+          (todos = todos.map((todo) =>
+            todo.id == todoToEdit.id ? todoToEdit : todo
+          ))
+      );
+      toEdit.set({});
+    }
+  }
 
   function handleSubmit() {
     if (text) {
@@ -20,7 +36,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={handleSubmit}>
+<form on:submit|preventDefault={addTodo ? handleSubmit : handleEdit}>
   <input type="text" placeholder="TODO here" bind:value={text} />
-  <button type="submit">ADD</button>
+  <button type="submit">{addTodo ? "ADD" : "EDIT"}</button>
 </form>

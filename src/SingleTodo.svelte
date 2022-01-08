@@ -1,10 +1,17 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
   import MdDelete from "svelte-icons/md/MdDelete.svelte";
   import MdEdit from "svelte-icons/md/MdEdit.svelte";
-  import { todos } from "./stores";
-  export let id;
-  export let task;
-  export let completed = false;
+  import { todos, toEdit } from "./stores";
+  export let todo;
+  let completed = todo.done;
+  let id = todo.id;
+
+  function handleEdit() {
+    toEdit.set(todo);
+    console.log($toEdit);
+  }
 
   function handleDelete() {
     todos.update((todos) => todos.filter((todo) => todo.id != id));
@@ -13,8 +20,10 @@
 
 <li>
   <input type="checkbox" bind:checked={completed} />
-  {task}
-  <button type="button" class="icon edit"><MdEdit /></button>
+  {todo.text}
+  <button type="button" class="icon edit" on:click={handleEdit}
+    ><MdEdit /></button
+  >
   <button type="button" class="icon delete" on:click={handleDelete}
     ><MdDelete /></button
   >

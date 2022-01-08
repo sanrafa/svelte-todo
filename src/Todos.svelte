@@ -1,14 +1,14 @@
 <script>
-  import { todos } from "./stores";
+  import { todos, toEdit } from "./stores";
   import SingleTodo from "./SingleTodo.svelte";
   import TodoForm from "./TodoForm.svelte";
 </script>
 
 <section>
-  <TodoForm />
+  <TodoForm text={Object.keys($toEdit) ? $toEdit.text : ""} />
   <ul>
     {#each $todos as todo (todo.id)}
-      <SingleTodo task={todo.text} completed={todo.done} id={todo.id} />
+      <SingleTodo {todo} />
     {/each}
   </ul>
 </section>
