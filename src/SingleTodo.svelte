@@ -3,8 +3,13 @@
   import MdEdit from "svelte-icons/md/MdEdit.svelte";
   import { todos, toEdit } from "./stores";
   export let todo;
-  let completed = todo.done;
   let id = todo.id;
+
+  function updateStatus() {
+    todos.update((todos) =>
+      todos.map((item) => (item.id == todo.id ? todo : item))
+    );
+  }
 
   function handleEdit() {
     toEdit.set(todo);
@@ -16,7 +21,7 @@
 </script>
 
 <li>
-  <input type="checkbox" bind:checked={completed} />
+  <input type="checkbox" bind:checked={todo.done} on:change={updateStatus} />
   {todo.text}
   <button type="button" class="icon edit" on:click={handleEdit}
     ><MdEdit /></button

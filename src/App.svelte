@@ -2,7 +2,15 @@
   import { onMount } from "svelte";
   import Welcome from "./Welcome.svelte";
   import Todos from "./Todos.svelte";
-  import { name, todos } from "./stores";
+  import { name, todos, toEdit } from "./stores";
+
+  function signOut() {
+    name.set("");
+    todos.set([]);
+    toEdit.set({});
+    localStorage.removeItem("name");
+    localStorage.removeItem("todos");
+  }
 
   onMount(() => {
     let username = localStorage.getItem("name");
@@ -21,6 +29,7 @@
     <Welcome />
   {:else}
     <!-- Otherwise, display app with existing information -->
+    <button type="button" on:click={signOut}>SIGN OUT</button>
     <h2>Hello {$name}!</h2>
     <p>What do you need to do?</p>
     <Todos />
