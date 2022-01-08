@@ -1,7 +1,17 @@
 <script>
+  import { onMount } from "svelte";
   import Welcome from "./Welcome.svelte";
   import Todos from "./Todos.svelte";
-  import { name } from "./stores";
+  import { name, todos } from "./stores";
+
+  onMount(() => {
+    let username = localStorage.getItem("name");
+    let savedTodos = JSON.parse(localStorage.getItem("todos"));
+    if (username && savedTodos) {
+      name.set(username);
+      todos.set(savedTodos);
+    }
+  });
 </script>
 
 <main>

@@ -4,11 +4,7 @@
 
   function handleSubmit() {
     name.set(username);
-    /* 
-    TODO: Change all sessionStorage to localStorage once application is more stable.
-    */
-    sessionStorage.setItem("name", username);
-    sessionStorage.setItem("todos", null);
+    localStorage.setItem("name", $name);
   }
 </script>
 
