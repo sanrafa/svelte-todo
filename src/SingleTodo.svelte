@@ -20,7 +20,7 @@
   }
 </script>
 
-<li>
+<li class:completed={todo.done ? true : false}>
   <input type="checkbox" bind:checked={todo.done} on:change={updateStatus} />
   {todo.text}
   <button type="button" class="icon edit" on:click={handleEdit}
@@ -44,5 +44,8 @@
   }
   .edit {
     color: blue;
+  }
+  .completed {
+    opacity: 25%;
   }
 </style>
