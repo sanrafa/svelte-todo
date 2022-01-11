@@ -23,17 +23,30 @@
 <li class:completed={todo.done ? true : false}>
   <input type="checkbox" bind:checked={todo.done} on:change={updateStatus} />
   {todo.text}
-  <button type="button" class="icon edit" on:click={handleEdit}
-    ><MdEdit /></button
-  >
-  <button type="button" class="icon delete" on:click={handleDelete}
-    ><MdDelete /></button
-  >
+  <div>
+    <button type="button" class="icon edit" on:click={handleEdit}
+      ><MdEdit /></button
+    >
+    <button type="button" class="icon delete" on:click={handleDelete}
+      ><MdDelete /></button
+    >
+  </div>
 </li>
 
 <style>
   li {
     list-style-type: none;
+    border: 2px solid rgba(128, 128, 128, 0.37);
+    box-shadow: 4px 3px 3px rgba(128, 128, 128, 0.397);
+    border-radius: 10px;
+    padding: 0.15rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 0.25rem;
+  }
+  li > * {
+    margin: 0.5rem;
   }
   .icon {
     width: 32px;

@@ -11,7 +11,7 @@
   }
 </script>
 
-<section>
+<section class="center">
   <TodoForm text={Object.keys($toEdit) ? $toEdit.text : ""} />
   <ul
     use:dndzone={{ items: $todos }}
@@ -23,3 +23,15 @@
     {/each}
   </ul>
 </section>
+
+<style>
+  .center {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  ul {
+    padding: 0;
+  }
+</style>
