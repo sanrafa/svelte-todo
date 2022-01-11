@@ -1,4 +1,6 @@
 <script>
+  import MdAdd from "svelte-icons/md/MdAdd.svelte";
+  import MdEdit from "svelte-icons/md/MdEdit.svelte";
   import { uid } from "uid/single";
   import { get } from "svelte/store";
   import { todos, toEdit } from "./stores";
@@ -40,5 +42,16 @@
 
 <form on:submit|preventDefault={addTodo ? handleSubmit : handleEdit}>
   <input type="text" placeholder="TODO here" bind:value={text} />
-  <button type="submit">{addTodo ? "ADD" : "EDIT"}</button>
+  {#if addTodo}
+    <button type="submit" class="icon"><MdAdd /></button>
+  {:else}
+    <button type="submit" class="icon"><MdEdit /></button>
+  {/if}
 </form>
+
+<style>
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+</style>
