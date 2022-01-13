@@ -50,8 +50,20 @@
 </form>
 
 <style>
+  form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  input {
+    margin-right: 0.6rem;
+  }
   .icon {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
+  }
+  button:hover {
+    opacity: 50%;
   }
 </style>

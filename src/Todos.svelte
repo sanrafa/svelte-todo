@@ -27,8 +27,8 @@
 
 <style>
   .scroll {
-    height: 48vh;
-    overflow-y: scroll;
+    height: 45vh;
+    overflow-y: auto;
   }
   .center {
     display: flex;
