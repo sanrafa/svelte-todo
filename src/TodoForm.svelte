@@ -33,7 +33,7 @@
         text: text,
         done: false,
       };
-      todos.update((todos) => (todos = [...list, todo]));
+      todos.update((todos) => (todos = [todo, ...list]));
       todo = {};
       text = "";
     } // add ELSE statement that triggers feedback if input empty?
