@@ -17,6 +17,7 @@
     use:dndzone={{ items: $todos }}
     on:consider={handleSort}
     on:finalize={handleSort}
+    class="scroll"
   >
     {#each $todos as todo (todo.id)}
       <SingleTodo {todo} />
@@ -25,6 +26,10 @@
 </section>
 
 <style>
+  .scroll {
+    height: 48vh;
+    overflow-y: scroll;
+  }
   .center {
     display: flex;
     flex-flow: column;
